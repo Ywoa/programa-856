@@ -1,0 +1,44 @@
+PrimeiroServlet.java
+
+package br.edu.unicarioca;
+
+import javax.servlet.http.*;
+import java.io.*;
+
+
+public class PrimeiroServlet extends HttpServlet {
+   @Override
+   public void doGet(HttpServletRequest request, HttpServletResponse response) 
+   throws IOException {
+  	
+	response.setContentType("text/html");
+        
+        PrintWriter out = response.getWriter();
+	out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Primeiro Servlet</title>");
+        out.println("<title>Básico</title>");
+        out.println("</head>");
+	out.println("<body>");
+        out.println("<h1>Welcome to SERVLET ;)</h1>");
+        out.println(request.getRequestURI());
+        out.println("</body>");
+        out.println("</html>");
+
+   }
+}
+
+WEB.XML
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+	<servlet>
+		<servlet-name>primeiro</servlet-name>
+		<servlet-class> br.edu.unicarioca.PrimeiroServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>primeiro</servlet-name>
+		<url-pattern></url-pattern>
+	</servlet-mapping>
+</web-app>
